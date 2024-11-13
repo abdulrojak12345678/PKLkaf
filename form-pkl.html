@@ -23,10 +23,10 @@
   
   <h1>Form tambah barang</h1>
 
-  <form class="mb-3"
+  <form class="mb-3">
     <div class="mb-3">
       <label class="form-label">tanggal Masuk</label>
-      <input type="date" class="form-control" id="input-tanggal Masuk">
+      <input type="date" class="form-control" id="datepicker">
     </div>
     <div class="mb-3">
       <label class="form-label">nama Barang</label>
@@ -42,17 +42,20 @@
 
   <script type="module">
     import { tambahBarang } from './main.js';
-
+  
+    
     let tombolTambah = document.getElementById('tombol-tambah');
     let elementanggalMasuk = document.getElementById('input-tanggal Masuk');
     let elemennamaBarang = document.getElementById('input-nama Barang');
     let elemenjumlahBarang = document.getElementById('input-jumlah Barang');
     
     tombolTambah.addEventListener('click', async function(e) {
+   
       e.preventDefault();
       await tambahBarang(elementanggalMasuk.value,elemennamaBarang.value, elemenjumlahBarang.value );
       window.location.href = 'index.html'
     })
+
   </script>
 
 </body>
