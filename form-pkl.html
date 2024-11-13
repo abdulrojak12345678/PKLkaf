@@ -26,7 +26,7 @@
   <form class="mb-3">
     <div class="mb-3">
       <label class="form-label">tanggal Masuk</label>
-      <input type="date" class="form-control" id="datepicker">
+      <input type="date" class="form-control" id="elementangalmasuk">
     </div>
     <div class="mb-3">
       <label class="form-label">nama Barang</label>
@@ -45,14 +45,17 @@
   
     
     let tombolTambah = document.getElementById('tombol-tambah');
-    let elementanggalMasuk = document.getElementById('input-tanggal Masuk');
+    let elementanggalMasuk = document.getElementById('elementangalmasuk');
     let elemennamaBarang = document.getElementById('input-nama Barang');
     let elemenjumlahBarang = document.getElementById('input-jumlah Barang');
     
     tombolTambah.addEventListener('click', async function(e) {
+            e.preventDefault();
+      let dateValue = new Date(elementangalmasuk.value);
+      let formattedDate = `${dateValue.getDate().toString().padStart(2, '0')}/${(dateValue.getMonth() + 1).toString().padStart(2, '0')}/${dateValue.getFullYear()}`;
    
-      e.preventDefault();
-      await tambahBarang(elementanggalMasuk.value,elemennamaBarang.value, elemenjumlahBarang.value );
+
+      await tambahBarang(formattedDate, elemennamaBarang.value, elemenjumlahBarang.value );
       window.location.href = 'index.html'
     })
 
