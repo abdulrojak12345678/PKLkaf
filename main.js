@@ -67,7 +67,7 @@ export async function ubahBarang(docId, tanggalMasuk, namaBarang, jumlahBarang )
   await updateDoc(doc(db, "pkl", docId), {
     tanggalMasuk: tanggalMasuk,
     namaBarang: namaBarang,
-    jumlahBarang: jumlahBarang,
+    jumlahBarang: jumlahBarang
   });
 }
 //fungsi untuk ambil data dan untuk diubah
