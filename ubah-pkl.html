@@ -59,18 +59,20 @@
     const parameterURL = new URLSearchParams(queryString);
     const docId = parameterURL.get('docId')
     const daftar = await ambilBarang(docId);
-
-    elementanggalMasuk.value = daftar.tanggalMasuk;
+let dateValue = new Date(daftar.tanggalMasuk);
+      let formattedDate = `${dateValue.getDate().toString().padStart(2, '0')}/${(dateValue.getMonth() + 1).toString().padStart(2, '0')}/${dateValue.getFullYear()}`;
+    elementanggalMasuk.value = formattedDate;
     elemennamaBarang.value = daftar.namaBarang;
     elemenjumlahBarang.value = daftar.jumlahBarang
 
     tombolUbah.addEventListener('click', async function(el) {
-      e.preventDefault();
-      let dateValue = new Date(elementanggalMasuk.value);
-      let formattedDate = `${dateValue.getDate().toString().padStart(2, '0')}/${(dateValue.getMonth() + 1).toString().padStart(2, '0')}/${dateValue.getFullYear()}`;
+      
 
       el.preventDefault();
-      await ubahBarang(formattedDate, elemennamaBarang.value, elemenjumlahBarang.value);
+      let dateValue = new Date(elementanggalMasuk.value);
+      let formattedDate = `${dateValue.getDate().toString().padStart(2, '0')}/${(dateValue.getMonth() + 1).toString().padStart(2, '0')}/${dateValue.getFullYear()}`;
+   
+      await ubahBarang(docId, formattedDate, elemennamaBarang.value, elemenjumlahBarang.value);
       window.location.href = 'index.html';
     });
   </script>
