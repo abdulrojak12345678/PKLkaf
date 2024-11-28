@@ -61,7 +61,7 @@
     const daftar = await ambilBarang(docId);
 let dateValue = new Date(daftar.tanggalMasuk);
       let formattedDate = `${dateValue.getDate().toString().padStart(2, '0')}/${(dateValue.getMonth() + 1).toString().padStart(2, '0')}/${dateValue.getFullYear()}`;
-    elementanggalMasuk.value = formattedDate;
+    elementanggalMasuk.value = document.getElementById('input-tanggalMasuk').innerText= formattedDate;
     elemennamaBarang.value = daftar.namaBarang;
     elemenjumlahBarang.value = daftar.jumlahBarang
 
