@@ -63,7 +63,7 @@ export async function hapusBarang(docId) {
   await deleteDoc(doc(db, "pkl", docId));
 }
 //fungsi untuk ubah data
-export async function ubahBarang(docId, tanggalMasuk, namaBarang, jumlahBarang ) {
+export async function ubahBarang(docId,tanggalMasuk, namaBarang, jumlahBarang ) {
   await updateDoc(doc(db, "pkl", docId), {
     tanggalMasuk: tanggalMasuk,
     namaBarang: namaBarang,
